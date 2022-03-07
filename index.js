@@ -17,7 +17,7 @@ app.get("/authors", checkPermission("author"), (req, res) => {
 
 function checkPermission(role) {
   return function (req, res, next) {
-    if (req.user.role == role) {
+    if (res.role == role) {
       next();
     } else {
       res.send("Not authorized");
